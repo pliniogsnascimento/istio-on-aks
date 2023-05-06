@@ -16,8 +16,8 @@ resource "kubectl_manifest" "bookinfo-gateway" {
   depends_on = [helm_release.istio_base, helm_release.istio_discovery]
 }
 
-resource "kubectl_manifest" "egresstest" {
-  count      = length(local.egresstest)
-  yaml_body  = local.egresstest[count.index]
-  depends_on = [helm_release.istio_base, helm_release.istio_discovery]
-}
+# resource "kubectl_manifest" "egresstest" {
+#   count      = length(local.egresstest)
+#   yaml_body  = local.egresstest[count.index]
+#   depends_on = [helm_release.istio_base, helm_release.istio_discovery]
+# }
