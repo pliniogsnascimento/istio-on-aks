@@ -136,7 +136,7 @@ istiodRemote:
   # Override to pass env variables, for example: /inject/cluster/remote/net/network2
   injectionPath: "/inject"
 telemetry:
-  enabled: true
+  enabled: false
   v2:
     # For Null VM case now.
     # This also enables metadata exchange.

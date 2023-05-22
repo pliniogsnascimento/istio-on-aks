@@ -21,6 +21,7 @@ resource "helm_release" "istio_discovery" {
   name       = "istiod"
   namespace  = kubernetes_namespace.istio-system.metadata[0].name
   repository = "https://istio-release.storage.googleapis.com/charts"
+  timeout    = 599
 
   chart   = "istiod"
   version = "1.17.2"
@@ -149,4 +150,7 @@ resource "helm_release" "istio-ingressgw" {
   namespace = kubernetes_namespace.istio-system.metadata[0].name
   chart     = "istio/manifests/charts/gateways/istio-ingress"
   values    = [file("${path.module}/manifests/values/istio-ingress-values.yaml")]
+  timeout   = 598
+
+  depends_on = [helm_release.istio_base, helm_release.istio_discovery]
 }
