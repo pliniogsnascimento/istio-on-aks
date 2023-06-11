@@ -24,6 +24,6 @@ locals {
 
 
 resource "kubectl_manifest" "istio_telemetry" {
-  yaml_body  = file("${path.module}/manifests/istio-temeletry.yaml")
+  yaml_body  = file("${path.module}/manifests/istio-telemetry.yaml")
   depends_on = [helm_release.istio_base, helm_release.istio_discovery]
 }
